@@ -54,4 +54,9 @@ public class CursoServiceImp implements CursoService {
 
 	}
 
+	@Override
+	public List<Curso> getLastTen() {
+		return cursoDao.getLastTen();
+	}
+
 }

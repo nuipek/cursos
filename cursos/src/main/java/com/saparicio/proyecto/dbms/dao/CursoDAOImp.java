@@ -66,4 +66,10 @@ public class CursoDAOImp implements CursoDAO {
 
 	}
 
+	@Override
+	public List<Curso> getLastTen() {
+		
+		return null;
+	}
+
 }

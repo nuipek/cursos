@@ -13,7 +13,6 @@
  
 <jsp:include page="includes/header.jsp" />
 <!-- <header class="col-xs-12"><h2 class="text-center text-capitalize"><spring:message code="aplicacion.nombre"  text="Aplicacion Cursos"/></h2></header> -->
-<main>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -35,6 +34,8 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+<main>
+ <!-- Aqui mostramos los 10 ultimos cursos creados -->
 </main>
 <footer>
 <jsp:include page="includes/footer.jsp"/> 

@@ -19,6 +19,8 @@ public interface CursoDAO extends DAOSetter {
 	
 	public List<Curso> getAll();
 	
+	public List<Curso> getLastTen();
+	
 	public Curso getById(int codigo);
 	
 	public Curso update(Curso curso);

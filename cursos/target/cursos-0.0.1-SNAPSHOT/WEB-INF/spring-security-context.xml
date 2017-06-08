@@ -7,11 +7,17 @@
         http://www.springframework.org/schema/security 
         http://www.springframework.org/schema/security/spring-security.xsd">
     
-    
+    <!-- 
+    #######################################################################################
+    PENDIENTE DE CAMBIAR LA URL para obligatorierad de introducir password y contraseña
+    #######################################################################################
+     -->
+     
+     
     <http auto-config="true">
         <intercept-url pattern="/" access="permitAll" />
         <intercept-url pattern="/login.html" access="permitAll" />
-        <intercept-url pattern="/producto*" access="hasRole('ROLE_ADMIN')" />
+        <intercept-url pattern="/pendiente*" access="hasRole('ROLE_ADMIN')" />
         <!-- 
         <form-login login-page="/login.html"  default-target-url="/login" always-use-default-target="true" />
         <logout logout-url="/logout"  invalidate-session="true" logout-success-url="/index.jsp" />
@@ -21,7 +27,7 @@
     <authentication-manager>
         <authentication-provider>
             <user-service>
-                <user name="admin" password="admin" authorities="ROLE_ADMIN" />
+                <user name="admin" password="2017#admin" authorities="ROLE_ADMIN" />
             </user-service>
         </authentication-provider>
     </authentication-manager>

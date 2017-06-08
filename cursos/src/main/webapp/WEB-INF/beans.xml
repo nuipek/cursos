@@ -22,27 +22,15 @@
     </bean> 
     
 	
-<!-- 
-    <bean id="clienteDAOImp" class="com.ipartek.formacion.dbms.dao.ClienteDAOImp">
-    	<property name="dataSource" ref="jbossDataSource"/>
+
+    <bean id="cursoDAOImp" class="com.saparicio.proyecto.dbms.dao.CursoDAOImp">
+    	<property name="dataSource" ref="mysqlDataSource"/>
     </bean>
     
-     <bean id="productoDAOImp" class="com.ipartek.formacion.dbms.dao.ProductoDAOImp">
-    	<property name="dataSource" ref="jbossDataSource"/>
-    </bean>
-    
-     <bean id="pedidoDAOImp" class="com.ipartek.formacion.dbms.dao.PedidoDAOImp">
-    	<property name="dataSource" ref="jbossDataSource"/>
-    </bean>
-    
-     <bean id="pedidoDetalleDAOImp" class="com.ipartek.formacion.dbms.dao.PedidoDetalleDAOImp">
-    	<property name="dataSource" ref="jbossDataSource"/>
-    </bean>
-    
-     -->
+     
 
     
-        <bean id="messageSource"
+       <bean id="messageSource"
       class="org.springframework.context.support.ResourceBundleMessageSource">
        <property name="basenames">
            <list>

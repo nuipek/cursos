@@ -35,6 +35,14 @@
   </div><!-- /.container-fluid -->
 </nav>
 <main>
+<div class="container">
+     <c:if test="${not empty mensaje}">
+        <div class="${mensaje.type}">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>${mensaje.msg}</strong> 
+        </div>
+    </c:if>
+  </div>	
  <!-- Aqui mostramos los 10 ultimos cursos creados -->
   <div class="container-fluid">
 	  <section class="row">
@@ -48,13 +56,12 @@
 			</div>	
 	   </section>
 		<section class="col-xs-12">
-		
-				<c:forEach var="curso" items="${listadoUltimosCursos}">
-					<div class="row">
-						<div class="col-xs-3">${curso.codCurso}</div>
-						<div class="col-xs-9">${curso.nomCurso}</div>
-					</div>	
-				</c:forEach>
+			<c:forEach var="curso" items="${listadoUltimosCursos}">
+				<div class="row">
+					<div class="col-xs-3">${curso.codCurso}</div>
+					<div class="col-xs-9">${curso.nomCurso}</div>
+				</div>	
+			</c:forEach>
 		</section>
   </div>
 </main>

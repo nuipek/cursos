@@ -21,10 +21,14 @@ public interface CursoDAO extends DAOSetter {
 	
 	public List<Curso> getLastTen();
 	
+	public List<Curso> getSearch(String busqueda);
+	
 	public Curso getById(int codigo);
 	
 	public Curso update(Curso curso);
 	
 	public void delete(int codigo);
+	
+	
 
 }

@@ -12,7 +12,7 @@
 <body>
  
 <jsp:include page="includes/header.jsp" />
-<!-- <header class="col-xs-12"><h2 class="text-center text-capitalize"><spring:message code="aplicacion.nombre"  text="Aplicacion Cursos"/></h2></header> -->
+<!-- <header class="col-xs-12"><h1 class="text-center text-capitalize"><spring:message code="aplicacion.nombre"  text="Aplicacion Cursos"/></h1></header> -->
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -36,6 +36,27 @@
 </nav>
 <main>
  <!-- Aqui mostramos los 10 ultimos cursos creados -->
+  <div class="container-fluid">
+	  <section class="row">
+	   	<header class="col-xs-12"><h2 class="text-center text-capitalize">Listado de Cursos</h2></header>
+	   	<div class="col-xs-12">
+			<!-- Si se anidan las columnas tiene que haber un row -->
+				<div class="row">
+					<div class="col-xs-3">Codigo Curso</div>
+					<div class="col-xs-9">Nombre Curso</div>
+				</div>
+			</div>	
+	   </section>
+		<section class="col-xs-12">
+		
+				<c:forEach var="curso" items="${listadoUltimosCursos}">
+					<div class="row">
+						<div class="col-xs-3">${curso.codCurso}</div>
+						<div class="col-xs-9">${curso.nomCurso}</div>
+					</div>	
+				</c:forEach>
+		</section>
+  </div>
 </main>
 <footer>
 <jsp:include page="includes/footer.jsp"/> 

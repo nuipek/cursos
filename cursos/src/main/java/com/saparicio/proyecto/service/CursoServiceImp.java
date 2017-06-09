@@ -59,4 +59,10 @@ public class CursoServiceImp implements CursoService {
 		return cursoDao.getLastTen();
 	}
 
+	@Override
+	public List<Curso> getSearch(String busqueda) {
+		
+		return cursoDao.getSearch(busqueda);
+	}
+
 }

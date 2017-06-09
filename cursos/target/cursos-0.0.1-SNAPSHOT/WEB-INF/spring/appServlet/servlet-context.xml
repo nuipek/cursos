@@ -39,12 +39,8 @@
 	
 	<!-- Carga los ficheros de properties de constantes a nivel de proyecto WEB -->
 	<context:property-placeholder location="classpath:/constantes/constantes.properties"/>
- <!-- 
-	<beans:bean id="clienteValidator" class="com.ipartek.formacion.controller.validator.ClienteValidator"/>
-	<beans:bean id="pedidoValidator" class="com.ipartek.formacion.controller.validator.PedidoValidator"/>
-	<beans:bean id="productoValidator" class="com.ipartek.formacion.controller.validator.ProductoValidator"/>
-	<beans:bean id="pedidoDetalleValidator" class="com.ipartek.formacion.controller.validator.PedidoDetalleValidator"/>
-	 -->
+
+	<beans:bean id="cursoValidator" class="com.saparicio.proyecto.controller.validator.CursoValidator"/>
 	
 	<context:component-scan base-package="com.saparicio.proyecto" />
 	

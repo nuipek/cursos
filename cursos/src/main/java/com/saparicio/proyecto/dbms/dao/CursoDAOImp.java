@@ -39,6 +39,7 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Repository;
 
+
 import com.saparicio.proyecto.dbms.dao.interfaces.CursoDAO;
 import com.saparicio.proyecto.dbms.dao.mappers.CursoMapper;
 import com.saparicio.proyecto.dbms.pojo.Curso;
@@ -79,6 +80,9 @@ public class CursoDAOImp implements CursoDAO {
 	@Value("${curso.getLastTen}")
 	private String sqlprocgetLastTen;
 	
+	@Value("${curso.getByCodCurso}")
+	private String sqlprocCodCursoDuplicado;
+	
 	
 	@Autowired
 	@Override
@@ -115,7 +119,7 @@ public class CursoDAOImp implements CursoDAO {
 		template = new JdbcTemplate(this.dataSource);
 		cursos = template.query(sqlprocgetAll, new CursoMapper());
 		
-		logger.debug("Se han recuperado todos los cursos");
+		logger.info("Se han recuperado todos los cursos");
 		
 		return cursos;
 	}
@@ -180,6 +184,37 @@ public class CursoDAOImp implements CursoDAO {
 		logger.info(" Se ha recuperado los cursos con criterio de busqueda %" + busqueda + "%");
 		
 		return cursos;
+	}
+	
+	@Override
+	public boolean getByCodCurso(Curso curso) {
+	   	boolean resultado = false;    
+	   	Curso aux;
+		template = new JdbcTemplate(this.dataSource);
+		
+		try {
+			
+			String codigoCurso = curso.getCodCurso();
+			aux =  template.queryForObject(sqlprocCodCursoDuplicado, new CursoMapper(),new Object[]{codigoCurso});
+		} catch (EmptyResultDataAccessException e) {
+			aux = new Curso();
+			logger.debug("Curso CodigoCurso  nulo");
+			
+		}catch(Exception e){
+			aux = new Curso();
+			e.printStackTrace();
+			logger.error("Error al recuperar Curso CodCurso " + e.getMessage());
+		}// fin del catch
+		
+		 
+		    
+			if (curso.getCodigo() != aux.getCodigo() && 
+				curso.getCodCurso().equals(aux.getCodCurso())){
+				resultado = true;
+		}
+			  
+		
+		return resultado;
 	}
 
 }

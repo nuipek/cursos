@@ -65,4 +65,10 @@ public class CursoServiceImp implements CursoService {
 		return cursoDao.getSearch(busqueda);
 	}
 
+	@Override
+	public boolean getByCodCurso(Curso curso) {
+		
+		return cursoDao.getByCodCurso(curso);
+	}
+
 }

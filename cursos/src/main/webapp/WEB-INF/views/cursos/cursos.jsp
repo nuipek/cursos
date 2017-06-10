@@ -39,17 +39,10 @@
 				<div class="col-xs-7">${curso.nomCurso}</div>
 				<div class="col-xs-3">
 					<a class ="btn btn-info" href="<c:url value='cursos/${curso.codigo}'/>">Editar</a>
-					<button type="button" class="btn btn-danger" data-toggle="modal" data-id="${curso.codigo}" data-target="#confirmacion">
+					<button type="button" class="btn btn-danger" data-toggle="modal" data-direccion="<c:url value='cursos/deleteCurso/${curso.codigo}'/>" data-target="#confirmacion">
 					 Borrar
 					</button>
-					<!-- 
-					$(document).on("click", ".open-Modal", function () {
-var codigo = $(this).data('id');
-
-$(".modal-body #DNI").val( myDNI );
-});
- -->
-	 				<a class ="btn btn-danger" href="<c:url value='cursos/deleteCurso/${curso.codigo}'/>">Borrar</a>
+		 				<a class ="btn btn-danger" href="<c:url value='cursos/deleteCurso/${curso.codigo}'/>">Borrar</a>
 	 			</div>
 			</div>	
 		</c:forEach>

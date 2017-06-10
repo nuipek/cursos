@@ -31,6 +31,12 @@
       <ul class="nav navbar-nav">
         <li><a href="<c:url value='cursos'/>"><spring:message code="inicio.menu.catologo"  text="Administracion de Catalogo de Cursos"/></a></li>
       </ul>
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Busqueda...">
+        </div>
+        <button type="submit" class="btn btn-default">Buscar</button>
+      </form>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

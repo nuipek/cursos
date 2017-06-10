@@ -39,10 +39,10 @@
 				<div class="col-xs-7">${curso.nomCurso}</div>
 				<div class="col-xs-3">
 					<a class ="btn btn-info" href="<c:url value='cursos/${curso.codigo}'/>">Editar</a>
-					<button type="button" class="btn btn-danger" data-toggle="modal" data-direccion="<c:url value='cursos/deleteCurso/${curso.codigo}'/>" data-target="#confirmacion">
+					<button type="button" class="btn btn-danger direccion" data-toggle="modal"  data-direccion="<c:url value='cursos/deleteCurso/${curso.codigo}'/>"  data-target="#confirmacion">
 					 Borrar
 					</button>
-		 				<a class ="btn btn-danger" href="<c:url value='cursos/deleteCurso/${curso.codigo}'/>">Borrar</a>
+		 			<!-- 	<a class ="btn btn-danger direccion"  data-toggle="modal"  data-target="#confirmacion" href="<c:url value='cursos/deleteCurso/${curso.codigo}'/>">Borrar</a> -->
 	 			</div>
 			</div>	
 		</c:forEach>
@@ -63,7 +63,6 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-danger" href="<c:url value='cursos/deleteCurso/${curso.codigo}'/>">Confirmar</button>
         <a class ="btn btn-primary" href="<c:url value='cursos/deleteCurso/${curso.codigo}'/>">Confirmar</a>
       </div>
     </div>
@@ -72,6 +71,11 @@
 <footer>
 <jsp:include page="../includes/footer.jsp" />
 </footer>
+     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+       
+<script src="<c:url value='/resources/js/cursos.js'/>"></script>
+</body>
 </html>
 
    

@@ -90,7 +90,7 @@ private static final Logger logger = LoggerFactory.getLogger(CursoController.cla
 			logger.error("Excepcion en la aplicacion " + e.getMessage());
 		}
 		
-		model.addAttribute("mensaje",mensaje);
+		//model.addAttribute("mensaje",mensaje);
 		model.addAttribute("listadoCursos",cursos);
 		return "cursos/cursos";
 	}
@@ -146,7 +146,7 @@ private static final Logger logger = LoggerFactory.getLogger(CursoController.cla
 				
 				try {
 					cS.update(curso);
-					textoMensaje="Se ha realizado correctamente la actualizacion del cliente. ";
+					textoMensaje="Se ha realizado correctamente la actualizacion del curso. ";
 					mensaje = new Mensaje(textoMensaje, Mensaje.MSG_TYPE_SUCCESS);
 					//logger.info(textoMensaje + curso.toString());
 				} catch (Exception e) {
@@ -163,7 +163,7 @@ private static final Logger logger = LoggerFactory.getLogger(CursoController.cla
 					mensaje = new Mensaje(textoMensaje, Mensaje.MSG_TYPE_SUCCESS);
 					//logger.info(textoMensaje + curso.toString());
 				} catch (Exception e) {
-					textoMensaje="Error al crear el cliente. ";
+					textoMensaje="Error al crear el curso. ";
 					mensaje = new Mensaje(textoMensaje, Mensaje.MSG_TYPE_DANGER);
 				}	
 			}

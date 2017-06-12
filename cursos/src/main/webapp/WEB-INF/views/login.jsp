@@ -8,20 +8,15 @@
 <main class="container-fluid">
 	<section>
 		<header><h2>Login</h2></header>
-		<c:if test="${param.error != null}">
-			<div class="alert alert-danger">
+		<c:if test="${not empty error}">
+           <div class="alert alert-danger">
 				<p>Nombre de usuario o contraseña incorrectos.</p>
 			</div>
-		</c:if>
-		<c:if test="${param.logout != null}">
-			<div class="alert alert-success">
-				<p>Se ha logueado correctamente.</p>
-			</div>
-		</c:if>
+        </c:if>
 		<c:url var="loginURL" value="/login"/>
 		<form:form action="${loginURL}" method="post">
 			<div class="input-group input-sm">
-				<label>Usuario:</label>
+					<label>usuario:</label>
 				<input value="${SPRING_SECURITY_LAST_USERNAME}" type="text" id="userId" name="userId" required/>
 			</div>
 			<div class="input-group input-sm">
@@ -34,3 +29,8 @@
 	
 	</section>
 </main>
+<footer>
+<jsp:include page="includes/footer.jsp"/> 
+</footer>
+</body>
+</html>

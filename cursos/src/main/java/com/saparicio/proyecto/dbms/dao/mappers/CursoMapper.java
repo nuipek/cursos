@@ -16,11 +16,10 @@ private static final Logger logger = LoggerFactory.getLogger(CursoMapper.class);
 	@Override
 	public Curso mapRow(ResultSet rs, int rownum) throws SQLException {
 		Curso curso = new Curso();
-		
+	
 		curso.setCodigo(rs.getInt("Codigo"));
 		curso.setCodCurso(rs.getString("CodCurso"));
 		curso.setNomCurso(rs.getString("NomCurso"));
-	
 		return curso;
 	}
 }

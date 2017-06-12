@@ -35,7 +35,8 @@
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Busqueda...">
         </div>
-        <button type="submit" class="btn btn-default">Buscar</button>
+        	<a class="btn " href="/api/cursos/buscar/busqueda">Buscar</a>
+       <!--  <button type="submit" class="btn btn-default">Buscar</button> -->
       </form>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

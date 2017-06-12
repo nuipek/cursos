@@ -2,9 +2,9 @@ CREATE DATABASE  IF NOT EXISTS `cursos` /*!40100 DEFAULT CHARACTER SET utf8 COLL
 USE `cursos`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: localhost    Database: cursos
+-- Host: 127.0.0.1    Database: cursos
 -- ------------------------------------------------------
--- Server version	5.7.14
+-- Server version	5.6.17
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -26,11 +26,11 @@ DROP TABLE IF EXISTS `cursos`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cursos` (
   `Codigo` int(11) NOT NULL AUTO_INCREMENT,
-  `CodCurso` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `NomCurso` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `CodCurso` varchar(50) NOT NULL,
+  `NomCurso` varchar(200) NOT NULL,
   PRIMARY KEY (`Codigo`),
   UNIQUE KEY `CodCurso_UNIQUE` (`CodCurso`)
-) ENGINE=InnoDB AUTO_INCREMENT=9088 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9088 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -191,13 +191,9 @@ BEGIN
 
 DECLARE buscar varchar(102);
 
- set @buscar =  CONCAT('%', LOWER(pBusqueda),'%');
- 
- select @buscar;
-
  SELECT Codigo, CodCurso, NomCurso
  FROM cursos.cursos
- WHERE LOWER(NomCurso) LIKE @buscar ;
+ WHERE NomCurso LIKE CONCAT('%', CAST(pBusqueda AS CHAR CHARACTER SET utf8),'%'); 
  
  
 
@@ -242,4 +238,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-10  9:32:32
+-- Dump completed on 2017-06-12 17:59:47

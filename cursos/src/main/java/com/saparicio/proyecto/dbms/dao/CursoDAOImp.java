@@ -178,10 +178,14 @@ public class CursoDAOImp implements CursoDAO {
 
 	@Override
 	public List<Curso> getSearch(String busqueda) {
-		template = new JdbcTemplate(this.dataSource);
-		cursos = template.query(sqlprocgetSearch, new Object[]{busqueda},new CursoMapper());
 		
-		logger.info(" Se ha recuperado los cursos con criterio de busqueda %" + busqueda + "%");
+			template = new JdbcTemplate(this.dataSource);
+			//logger.info("Dentro " + sqlprocgetSearch  );
+			cursos = template.query(sqlprocgetSearch, new Object[]{busqueda},new CursoMapper());
+			
+			logger.info(" Se ha recuperado los cursos con criterio de busqueda %" + busqueda + "%");
+	
+	
 		
 		return cursos;
 	}

@@ -71,10 +71,6 @@
 <footer>
 <jsp:include page="../includes/footer.jsp" />
 </footer>
-     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
-       
-<script src="<c:url value='/resources/js/cursos.js'/>"></script>
 </body>
 </html>
 

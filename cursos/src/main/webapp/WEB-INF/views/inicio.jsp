@@ -33,10 +33,9 @@
       </ul>
       <form class="navbar-form navbar-left">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Busqueda...">
+          <input id="textoBuscar" type="text" class="form-control busqueda" placeholder="Busqueda por nombre...">
         </div>
-        	<a class="btn " href="/api/cursos/buscar/busqueda">Buscar</a>
-       <!--  <button type="submit" class="btn btn-default">Buscar</button> -->
+        	<button id="buscar" type="button" class="btn btn-default">Buscar</button>
       </form>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -51,25 +50,27 @@
     </c:if>
   </div>	
  <!-- Aqui mostramos los 10 ultimos cursos creados -->
-  <div class="container-fluid">
-	  <section class="row">
-	   	<header class="col-xs-12"><h2 class="text-center text-capitalize">Listado de los ultimos Cursos</h2></header>
-	   	<div class="col-xs-12">
-			<!-- Si se anidan las columnas tiene que haber un row -->
-				<div class="row">
-					<div class="col-xs-3">Codigo Curso</div>
-					<div class="col-xs-9">Nombre Curso</div>
-				</div>
-			</div>	
-	   </section>
-		<section class="col-xs-12">
-			<c:forEach var="curso" items="${listadoUltimosCursos}">
-				<div class="row">
-					<div class="col-xs-3">${curso.codCurso}</div>
-					<div class="col-xs-9">${curso.nomCurso}</div>
+  <div id="contenedorCursos" class="container-fluid">
+  	<div id="removable">
+		  <section class="row">
+		   	<header class="col-xs-12"><h2 class="text-center text-capitalize">Listado de los ultimos Cursos</h2></header>
+		   	<div class="col-xs-12">
+				<!-- Si se anidan las columnas tiene que haber un row -->
+					<div class="row">
+						<div class="col-xs-3">Codigo Curso</div>
+						<div class="col-xs-9">Nombre Curso</div>
+					</div>
 				</div>	
-			</c:forEach>
-		</section>
+		   </section>
+			<section class="col-xs-12">
+				<c:forEach var="curso" items="${listadoUltimosCursos}">
+					<div class="row">
+						<div class="col-xs-3">${curso.codCurso}</div>
+						<div class="col-xs-9">${curso.nomCurso}</div>
+					</div>	
+				</c:forEach>
+			</section>
+		</div>	
   </div>
 </main>
 <footer>

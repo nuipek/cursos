@@ -8,13 +8,25 @@ $(document).on("click", ".direccion", function () {
 });
 
 $(document).on("click", "#confirmacion", function () {
-    var id1 = $(this).data('id');
     /*alert(direccion);*/
     $(".modal-footer .btn-primary").attr("href", direccion);
 });
 
+$( ".busqueda").keypress(function(e) {
+    // Enter pressed?
+    if(e.which == 10 || e.which == 13) {
+    	e.preventDefault();
+    	procesarBusqueda();
+    }
+    
+});
 
 $(document).on("click", "#buscar", function () {
+	procesarBusqueda();
+});
+
+function procesarBusqueda()
+{
     var busqueda = $(".busqueda").val();
     var buscar = busqueda;
 
@@ -30,9 +42,10 @@ $(document).on("click", "#buscar", function () {
         contentType: "application/json",
         dataType: "json",
         success : function(data,textStatus,xhr) {
-            console.log("sucess " + data);
+            /*console.log("sucess " + data);
             console.log("status " + textStatus)
             console.log("xhr " + xhr.status)
+            */
 
             if (xhr.status == 200)
             {
@@ -49,9 +62,8 @@ $(document).on("click", "#buscar", function () {
         error: function(data, textStatus, xhr) {
             console.log("error " + textStatus);
         }
-    });
-});
-
+    });	
+}
 
 
 function renderizarError(status, busqueda){
@@ -75,7 +87,7 @@ function renderizarError(status, busqueda){
 
 
     if (status == 204){
-        console.log("No hay Cursos para la busqueda solicitada " + buscar);
+        console.log("No hay Cursos para la busqueda solicitada " + busqueda);
         var txt =  '<section class="row"><header class="col-xs-12"><h2 class="text-center">';
         txt += 'No hay Resultados para la busqueda, ' + busqueda +'</h2></header>';
 
@@ -126,7 +138,7 @@ function renderizarBusqueda(cursos,busqueda){
     for(var x=0;x<cursos.length;x++) {
 
         var curso = cursos[x];
-        console.log(cursos);
+        //console.log(curso);
         var datos = '<div class="row"><div class="col-xs-3">' + curso['codCurso'];
         datos += '</div><div class="col-xs-9">' + curso['nomCurso'];
         datos += '</div></div>'

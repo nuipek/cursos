@@ -84,7 +84,7 @@ public class CursoDAOImp implements CursoDAO {
 	private String sqlprocCodCursoDuplicado;
 	
 	
-//	@Autowired
+
 	@Override
 	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;

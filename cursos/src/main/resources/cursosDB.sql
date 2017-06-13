@@ -30,7 +30,7 @@ CREATE TABLE `cursos` (
   `NomCurso` varchar(200) NOT NULL,
   PRIMARY KEY (`Codigo`),
   UNIQUE KEY `CodCurso_UNIQUE` (`CodCurso`)
-) ENGINE=InnoDB AUTO_INCREMENT=9088 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -119,7 +119,7 @@ BEGIN
 
  SELECT Codigo, CodCurso, NomCurso
  FROM cursos.cursos
- WHERE LOWER(CodCurso) = LOWER(pCodCurso);
+ WHERE CodCurso = CAST(pCodCurso AS CHAR CHARACTER SET utf8);
 
 END ;;
 DELIMITER ;

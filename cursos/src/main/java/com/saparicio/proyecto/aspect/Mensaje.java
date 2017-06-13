@@ -2,6 +2,18 @@ package com.saparicio.proyecto.aspect;
 
 import java.io.Serializable;
 
+/**
+ * <div>
+ * <p>
+ *  Esta clase implementa la gestion de los mensajes correspondientes a las operacion dao que se ven en las vistas.
+ * </p>
+ * </div>
+ * 
+ * @author Sergio aparicio.
+ * 
+ */
+
+
 public class Mensaje implements Serializable {
 
 	public static final String MSG_TYPE_SUCCESS="alert alert-success alert-dismissible";

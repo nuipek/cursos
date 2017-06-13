@@ -2,6 +2,16 @@ package com.saparicio.proyecto.dbms.pojo;
 
 import java.io.Serializable;
 
+/**
+* <div>
+* <p>
+* Esta clase se incluye el modelo de datos de la aplicacion 
+* </p>
+* </div>
+* 
+* @author Sergio aparicio.
+*
+*/
 
 public class Curso implements Comparable<Curso>, Serializable{
 

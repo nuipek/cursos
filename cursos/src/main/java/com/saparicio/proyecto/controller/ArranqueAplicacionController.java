@@ -1,16 +1,14 @@
 package com.saparicio.proyecto.controller;
 
 
-
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import javax.annotation.Resource;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.sql.DataSource;
+
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,6 +30,16 @@ import com.saparicio.proyecto.dbms.pojo.Curso;
 import com.saparicio.proyecto.service.interfaces.CursoService;
 
 
+/**
+ * <div>
+ * <p>
+ *  En esta clase implementamos controlador de las urls de arranque de la aplicacion y la gestion del login
+ * </p>
+ * </div>
+ * 
+ * @author Sergio aparicio.
+ *
+ */
 
 
 @Controller

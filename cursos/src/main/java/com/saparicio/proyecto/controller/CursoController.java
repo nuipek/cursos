@@ -2,34 +2,24 @@ package com.saparicio.proyecto.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Validator;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
@@ -37,6 +27,17 @@ import com.saparicio.proyecto.aspect.Mensaje;
 import com.saparicio.proyecto.dbms.pojo.Curso;
 import com.saparicio.proyecto.service.interfaces.CursoService;
 
+
+/**
+ * <div>
+ * <p>
+ *  En esta clase implementamos el controlador de las urls de la entidad curso de la aplicacion 
+ * </p>
+ * </div>
+ * 
+ * @author Sergio aparicio.
+ *
+ */
 
 @Controller
 @RequestMapping(value="/cursos")
@@ -52,7 +53,7 @@ private static final Logger logger = LoggerFactory.getLogger(CursoController.cla
 	@Resource(name="cursoValidator")
 	private Validator validator=null;
 	
-	private ModelAndView mav=null;
+	
 	List<Curso> cursos=null;
 	String textoMensaje="";
 	Mensaje mensaje = null;

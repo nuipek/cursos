@@ -5,6 +5,17 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+/**
+ * <div>
+ * <p>
+ *  Esta clase carga los recursos necesarios para la ejecucion del swagger-ui.
+ * </p>
+ * </div>
+ * 
+ * @author Sergio aparicio.
+ * 
+ */
+
 @Configuration
 @EnableWebMvc
 public class SwaggerResources extends WebMvcConfigurerAdapter {

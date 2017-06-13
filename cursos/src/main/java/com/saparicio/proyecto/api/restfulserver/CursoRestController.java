@@ -1,13 +1,4 @@
-/**
- * <div>
- * <p>
- *  Esta clase implementa la api rest para la aplicacion.
- * </p>
- * </div>
- * 
- * @author Sergio aparicio.
- * 
- */
+
 
 package com.saparicio.proyecto.api.restfulserver;
 
@@ -23,11 +14,22 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.saparicio.proyecto.dbms.pojo.Curso;
 import com.saparicio.proyecto.service.interfaces.CursoService;
+
+/**
+ * <div>
+ * <p>
+ *  Esta clase implementa la api rest para la aplicacion.
+ * </p>
+ * </div>
+ * 
+ * @author Sergio aparicio.
+ * 
+ */
+
 
 @CrossOrigin(origins="*",maxAge=3600,methods={RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 @RestController

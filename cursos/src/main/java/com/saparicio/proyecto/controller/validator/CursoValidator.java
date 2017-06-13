@@ -11,6 +11,17 @@ import org.springframework.validation.Validator;
 import com.saparicio.proyecto.dbms.pojo.Curso;
 import com.saparicio.proyecto.service.interfaces.CursoService;
 
+/**
+ * <div>
+ * <p>
+ *  En esta clase implmentamos el validador de la entidad curso.
+ * </p>
+ * </div>
+ * 
+ * @author Sergio aparicio.
+ *
+ */
+
 public class CursoValidator implements Validator {
 
 	private static final Logger logger = LoggerFactory.getLogger(CursoValidator.class);

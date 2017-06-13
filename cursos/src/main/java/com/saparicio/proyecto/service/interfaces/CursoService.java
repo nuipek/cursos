@@ -1,9 +1,20 @@
 package com.saparicio.proyecto.service.interfaces;
 
 import java.util.List;
-
 import com.saparicio.proyecto.dbms.dao.interfaces.CursoDAO;
 import com.saparicio.proyecto.dbms.pojo.Curso;
+
+
+/**
+* <div>
+* <p>
+* Esta Interfaz contiene la funcionalidad de la capa logica de la aplicacion. 
+* </p>
+* </div>
+* 
+* @author Sergio aparicio.
+*
+*/
 
 public interface CursoService {
 

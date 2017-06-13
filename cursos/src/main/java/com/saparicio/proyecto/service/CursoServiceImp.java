@@ -10,7 +10,16 @@ import org.springframework.stereotype.Service;
 import com.saparicio.proyecto.dbms.dao.interfaces.CursoDAO;
 import com.saparicio.proyecto.dbms.pojo.Curso;
 import com.saparicio.proyecto.service.interfaces.CursoService;
-
+/**
+* <div>
+* <p>
+* Esta clase implementa las operaciones de la capa logica de la aplicacion. 
+* </p>
+* </div>
+* 
+* @author Sergio aparicio.
+*
+*/
 @Service
 public class CursoServiceImp implements CursoService {
 

@@ -1,0 +1,13 @@
+com.saparicio.proyecto
+com.saparicio.proyecto.api
+com.saparicio.proyecto.api.restfulserver
+com.saparicio.proyecto.aspect
+com.saparicio.proyecto.controller
+com.saparicio.proyecto.controller.validator
+com.saparicio.proyecto.dbms
+com.saparicio.proyecto.dbms.dao
+com.saparicio.proyecto.dbms.dao.interfaces
+com.saparicio.proyecto.dbms.dao.mappers
+com.saparicio.proyecto.dbms.pojo
+com.saparicio.proyecto.service
+com.saparicio.proyecto.service.interfaces

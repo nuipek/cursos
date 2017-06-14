@@ -23,7 +23,7 @@ import com.saparicio.proyecto.dbms.pojo.Curso;
 
 public class CursoMapper implements RowMapper<Curso> {
 	
-private static final Logger logger = LoggerFactory.getLogger(CursoMapper.class);
+private static final Logger LOGGER = LoggerFactory.getLogger(CursoMapper.class);
 	
 	@Override
 	public Curso mapRow(ResultSet rs, int rownum) throws SQLException {

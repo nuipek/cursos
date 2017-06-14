@@ -46,7 +46,7 @@ import com.saparicio.proyecto.service.interfaces.CursoService;
 @RequestMapping(value = "/")
 public class ArranqueAplicacionController {
 
-	private static final Logger logger = LoggerFactory.getLogger(ArranqueAplicacionController.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(ArranqueAplicacionController.class);
 
 	@Autowired
 	private CursoService cS=null;
@@ -57,10 +57,10 @@ public class ArranqueAplicacionController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 	
-		logger.info("Arrancamos la aplicacion");
+		LOGGER.info("Arrancamos la aplicacion");
 		
 		
-		logger.info("Mostramos los ultimos Cursos de la aplicacion");
+		LOGGER.info("Mostramos los ultimos Cursos de la aplicacion");
 		try{
 			cursos = cS.getLastTen();
 			textoMensaje="Mostramos los ultimos 10 cursos";
@@ -70,20 +70,20 @@ public class ArranqueAplicacionController {
 			cursos = new ArrayList<Curso>();
 			textoMensaje="No hay datos que cumplan los criterios solicitados";
 			mensaje = new Mensaje(textoMensaje, Mensaje.MSG_TYPE_WARNING);
-			logger.info("No hay datos en la BBDD que cumplan los criterios solicitados");
+			LOGGER.info("No hay datos en la BBDD que cumplan los criterios solicitados");
 		}
 		
 		catch(Exception e){
 			cursos = new ArrayList<Curso>();
 			textoMensaje="Error al mostrar los cursos";
 			mensaje = new Mensaje(textoMensaje, Mensaje.MSG_TYPE_DANGER);
-			logger.error("Excepcion en la aplicacion " + e.getMessage());
+			LOGGER.error("Excepcion en la aplicacion " + e.getMessage());
 		}
 		
 		
 		model.addAttribute("mensaje",mensaje);
 		model.addAttribute("listadoUltimosCursos",cursos);
-		logger.info("Nos dirigimos a la pagina de inicio");
+		LOGGER.info("Nos dirigimos a la pagina de inicio");
 		return "inicio";
 	}
 	
@@ -92,7 +92,7 @@ public class ArranqueAplicacionController {
 	public String loginPage(Model model, @RequestParam(value = "logout", required = false) String logout) {
 
 		if (logout != null) {
-			logger.info("login-logout");
+			LOGGER.info("login-logout");
 			model.addAttribute("mensaje", "Se ha deslogueado con exito.");
 		}
 		return "login";

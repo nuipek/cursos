@@ -4,7 +4,7 @@
 <spring:message var="titulo" code="aplicacion.nombre" />
 <c:set scope="application" var="seccion" value="${titulo}"/>
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>${titulo}</title>
@@ -23,7 +23,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-braand" href="<c:url value="/"/>"><img style="max-width:90px" src="<c:url value='/resources/img/descarga.jpg'/>"></a>
+      <a class="navbar-braand" href="<c:url value="/"/>"><img style="max-width:90px" alt = "imagen inicio" role="presentation" src="<c:url value='/resources/img/descarga.jpg'/>"></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -33,7 +33,8 @@
       </ul>
       <form class="navbar-form navbar-left">
         <div class="form-group">
-          <input id="textoBuscar" type="text" class="form-control busqueda" placeholder="Busqueda por nombre...">
+        	<div id="hidden-label-element" style="display: none">Busqueda por nombre</div>
+          <input aria-labelledby="hidden-label-element" id="textoBuscar" type="text" class="form-control busqueda" placeholder="Busqueda por nombre...">
         </div>
         	<button id="buscar" type="button" class="btn btn-default">Buscar</button>
       </form>

@@ -24,7 +24,7 @@ import com.saparicio.proyecto.service.interfaces.CursoService;
 
 public class CursoValidator implements Validator {
 
-	private static final Logger logger = LoggerFactory.getLogger(CursoValidator.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(CursoValidator.class);
 	
 	@Autowired
 	private CursoService cS;
@@ -67,8 +67,8 @@ public class CursoValidator implements Validator {
 		if (cS.getByCodCurso(curso)){
 			 errors.rejectValue("codCurso", "valorDuplicado", 
 					 			new Object[]{"'codCurso'"}, 
-					 			"El Codigo de Curso se encuentra duplicado - " + curso.getCodCurso());
-			 logger.info("El CodCurso esta duplicado ");
+					 			"El Codigo de Curso se encuentra duplicado " + curso.getCodCurso());
+			 LOGGER.info("El CodCurso esta duplicado ");
 		}
 	
 		

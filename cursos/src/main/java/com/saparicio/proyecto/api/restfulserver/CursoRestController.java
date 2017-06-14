@@ -36,7 +36,7 @@ import com.saparicio.proyecto.service.interfaces.CursoService;
 @RequestMapping(value="/api")
 public class CursoRestController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(CursoRestController.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(CursoRestController.class);
 	
 	@Autowired
 	private CursoService cS;
@@ -45,7 +45,7 @@ public class CursoRestController {
 	@RequestMapping(value="/buscar/{busqueda}", method=RequestMethod.GET,produces={MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_XML_VALUE})
 	public ResponseEntity<List<Curso>> realizarBusqueda(@PathVariable("busqueda") String busqueda){
 		
-		logger.info("busqueda "  + busqueda);
+		LOGGER.info("busqueda "  + busqueda);
 		ResponseEntity<List<Curso>> response = null;
 		List<Curso> cursos = null;
 		

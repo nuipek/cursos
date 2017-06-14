@@ -1,1 +1,5 @@
-C:\wamp\bin\mysql\mysql5.6.17\bin>mysqlimport.exe --host=localhost --user=root --password= --local --default-character-set=utf8 --delete --fields-terminated-by=";" --ignore-lines=1 --verbose --columns=@ignorado,NomCurso,@ignorado,@ignorado,@ignorado,@ignorado,@ignorado,@ignorado,CodCurso --fields-enclosed-by="" --fields-escaped-by="" --lines-terminated-by="\r\n"  cursos C:\desarrollo\cursos.csv 
+Dejar el fichero cursos.csv en la ruta c:\desarrollo
+Abrir consola 
+ir a la instalacion del mysql en mi caso C:\wamp\bin\mysql\mysql5.6.17\bin
+ejecutar el siguiente comando para crear la base de datos
+mysqlimport.exe --host=localhost --user=root --password= --local --default-character-set=utf8 --delete --fields-terminated-by=";" --ignore-lines=1 --verbose --columns=@ignorado,NomCurso,@ignorado,@ignorado,@ignorado,@ignorado,@ignorado,@ignorado,CodCurso --fields-enclosed-by="" --fields-escaped-by="" --lines-terminated-by="\r\n"  cursos C:\desarrollo\cursos.csv 

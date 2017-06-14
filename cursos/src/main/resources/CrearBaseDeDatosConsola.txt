@@ -1,1 +1,5 @@
-C:\wamp\bin\mysql\mysql5.6.17\bin>mysql --host=localhost --user=root --password=  < c:\desarrollo\cursosDB.sql
+Dejar el fichero cursosDB.sql en la ruta c:\desarrollo
+Abrir consola 
+ir a la instalacion del mysql en mi caso C:\wamp\bin\mysql\mysql5.6.17\bin
+ejecutar el siguiente comando para crear la base de datos
+mysql --host=localhost --user=root --password=  < c:\desarrollo\cursosDB.sql

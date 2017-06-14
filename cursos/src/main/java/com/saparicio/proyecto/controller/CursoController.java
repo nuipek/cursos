@@ -43,7 +43,7 @@ import com.saparicio.proyecto.service.interfaces.CursoService;
 @RequestMapping(value="/cursos")
 public class CursoController {
 
-private static final Logger logger = LoggerFactory.getLogger(CursoController.class);
+private static final Logger LOGGER = LoggerFactory.getLogger(CursoController.class);
 	
 	
 	@Autowired
@@ -66,7 +66,7 @@ private static final Logger logger = LoggerFactory.getLogger(CursoController.cla
 	
 	@RequestMapping(method=RequestMethod.GET, value ="/{id}")
 	public String getById(@PathVariable("id") int codigo, Model model){
-		logger.info("Hemos seleccionado la opcion de curso con codigo " + codigo);
+		LOGGER.info("Hemos seleccionado la opcion de curso con codigo " + codigo);
 		model.addAttribute("curso",cS.getById(codigo));
 		return "cursos/curso";
 	}
@@ -83,12 +83,12 @@ private static final Logger logger = LoggerFactory.getLogger(CursoController.cla
 			cursos = new ArrayList<Curso>();
 			textoMensaje="No hay datos en la BBDD para mostrar";
 			mensaje = new Mensaje(textoMensaje, Mensaje.MSG_TYPE_WARNING);
-			logger.info(textoMensaje);
+			LOGGER.info(textoMensaje);
 		}catch(Exception e){
 			cursos = new ArrayList<Curso>();
 			textoMensaje="Error al mostrar los cursos";
 			mensaje = new Mensaje(textoMensaje, Mensaje.MSG_TYPE_DANGER);
-			logger.error("Excepcion en la aplicacion " + e.getMessage());
+			LOGGER.error("Excepcion en la aplicacion " + e.getMessage());
 		}
 		
 		//model.addAttribute("mensaje",mensaje);
@@ -132,7 +132,7 @@ private static final Logger logger = LoggerFactory.getLogger(CursoController.cla
 		Mensaje mensaje = null;
 		
 		if (bindingResult.hasErrors()){
-			logger.info("Curso tiene errores " + 
+			LOGGER.info("Curso tiene errores " + 
 			bindingResult.getAllErrors().toString());
 			textoMensaje = "Los datos de formulario contienen errores ";
 			mensaje = new Mensaje(textoMensaje, Mensaje.MSG_TYPE_DANGER);
@@ -149,7 +149,7 @@ private static final Logger logger = LoggerFactory.getLogger(CursoController.cla
 					cS.update(curso);
 					textoMensaje="Se ha realizado correctamente la actualizacion del curso. ";
 					mensaje = new Mensaje(textoMensaje, Mensaje.MSG_TYPE_SUCCESS);
-					//logger.info(textoMensaje + curso.toString());
+					//LOGGER.info(textoMensaje + curso.toString());
 				} catch (Exception e) {
 					textoMensaje="Error al crear el curso. ";
 					mensaje = new Mensaje(textoMensaje, Mensaje.MSG_TYPE_DANGER);
@@ -162,7 +162,7 @@ private static final Logger logger = LoggerFactory.getLogger(CursoController.cla
 					cS.create(curso);
 					textoMensaje="Se ha realizado correctamente la creacion del curso. ";
 					mensaje = new Mensaje(textoMensaje, Mensaje.MSG_TYPE_SUCCESS);
-					//logger.info(textoMensaje + curso.toString());
+					//LOGGER.info(textoMensaje + curso.toString());
 				} catch (Exception e) {
 					textoMensaje="Error al crear el curso. ";
 					mensaje = new Mensaje(textoMensaje, Mensaje.MSG_TYPE_DANGER);

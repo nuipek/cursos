@@ -23,7 +23,7 @@ import com.saparicio.proyecto.service.interfaces.CursoService;
 @Service
 public class CursoServiceImp implements CursoService {
 
-	 private static final Logger logger = LoggerFactory.getLogger(CursoServiceImp.class);
+	 private static final Logger LOGGER = LoggerFactory.getLogger(CursoServiceImp.class);
 	 
 	@Autowired
 	private CursoDAO cursoDao;

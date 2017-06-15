@@ -54,6 +54,18 @@ public class CursoValidator implements Validator {
 					 			new Object[]{"'codCurso'"}, "Tamaño Incorrecto, debe ser menor de 50 caracteres");
 		 
 		 }
+		else
+		{
+			
+			if (cS.getByCodCurso(curso)){
+				 errors.rejectValue("codCurso", "valorDuplicado", 
+						 			new Object[]{"'codCurso'"}, 
+						 			"El Codigo de Curso se encuentra duplicado " + curso.getCodCurso());
+				 LOGGER.info("El CodCurso esta duplicado ");
+			}
+		
+			
+		}
 		
 		if (curso.getNomCurso().length()> 200){
 			 errors.rejectValue("nomCurso", "WrongSize", 
@@ -63,13 +75,6 @@ public class CursoValidator implements Validator {
 		
 	
 		
-		
-		if (cS.getByCodCurso(curso)){
-			 errors.rejectValue("codCurso", "valorDuplicado", 
-					 			new Object[]{"'codCurso'"}, 
-					 			"El Codigo de Curso se encuentra duplicado " + curso.getCodCurso());
-			 LOGGER.info("El CodCurso esta duplicado ");
-		}
 	
 		
 		 

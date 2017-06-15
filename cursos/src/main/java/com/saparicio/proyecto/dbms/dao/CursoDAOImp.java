@@ -197,7 +197,10 @@ public class CursoDAOImp implements CursoDAO {
 		try {
 			
 			String codigoCurso = curso.getCodCurso();
-			aux =  template.queryForObject(sqlprocCodCursoDuplicado, new CursoMapper(),new Object[]{codigoCurso});
+			logger.info("Curso CodigoCurso " + codigoCurso);
+			cursos = template.query(sqlprocCodCursoDuplicado, new Object[]{codigoCurso},new CursoMapper());
+			//aux =  template.queryForObject(sqlprocCodCursoDuplicado, new CursoMapper(),new Object[]{codigoCurso});
+			aux =  cursos.get(0); //template.queryForObject(sqlprocCodCursoDuplicado, new CursoMapper(),new Object[]{codigoCurso});
 		} catch (EmptyResultDataAccessException e) {
 			aux = new Curso();
 			logger.debug("Curso CodigoCurso  nulo");

@@ -16,6 +16,10 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
+	<listener>
+    <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+	</listener>
+	
 	<filter> <!-- Filtro para que Spring codifique las peticiones como UTF-8 -->
         <filter-name>CharacterEncodingFilter</filter-name>
         <filter-class>

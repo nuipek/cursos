@@ -45,7 +45,7 @@ import com.saparicio.proyecto.dbms.pojo.Curso;
 @Repository("cursoDAOImp")
 public class CursoDAOImp implements CursoDAO {
 
-	private Logger logger = LoggerFactory.getLogger(CursoDAOImp.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(CursoDAOImp.class);
 	
     @SuppressWarnings("unused")
 	@Resource(name="mysqlDataSource")
@@ -101,12 +101,12 @@ public class CursoDAOImp implements CursoDAO {
 		SqlParameterSource in = new MapSqlParameterSource().addValue("pCodCurso", curso.getCodCurso())
 					.addValue("pNomCurso",curso.getNomCurso());
 		
-		logger.debug(curso.toString());
+		LOGGER.debug(curso.toString());
 		Map<String,Object> out = jdbcCall.execute(in);
 		
 		curso.setCodigo((Integer)out.get("pcodigo"));
 		
-		logger.info("Se ha creado el curso - codigo:" + String.valueOf(curso.getCodigo()));
+		LOGGER.info("Se ha creado el curso - codigo:" + String.valueOf(curso.getCodigo()));
 		
 		return curso;
 	}
@@ -117,7 +117,7 @@ public class CursoDAOImp implements CursoDAO {
 		template = new JdbcTemplate(this.dataSource);
 		cursos = template.query(sqlprocgetAll, new CursoMapper());
 		
-		logger.info("Se han recuperado todos los cursos");
+		LOGGER.info("Se han recuperado todos los cursos");
 		
 		return cursos;
 	}
@@ -127,7 +127,7 @@ public class CursoDAOImp implements CursoDAO {
 		template = new JdbcTemplate(this.dataSource);
 		
 		curso = template.queryForObject(sqlprocgetById, new CursoMapper(),new Object[]{codigo});
-		logger.info(" Se ha recuperado el curso con codigo" + codigo + " - " + curso.toString());
+		LOGGER.info(" Se ha recuperado el curso con codigo" + codigo + " - " + curso.toString());
 		
 		return curso;
 	}
@@ -146,7 +146,7 @@ public class CursoDAOImp implements CursoDAO {
 		
 		jdbcCall.execute(in);
 		
-		logger.info(" Se ha actualizado el curso con codigo" + curso.getCodigo() + " - " + curso.toString());
+		LOGGER.info(" Se ha actualizado el curso con codigo" + curso.getCodigo() + " - " + curso.toString());
 		
 		return curso;
 	}
@@ -159,7 +159,7 @@ public class CursoDAOImp implements CursoDAO {
 		SqlParameterSource in = new MapSqlParameterSource().addValue("pcodigo", codigo);
 		jdbcCall.withProcedureName(sqlprocdelete);
 		jdbcCall.execute(in);
-		logger.info("Se ha borrado el cliente con codigo " + String.valueOf(codigo));
+		LOGGER.info("Se ha borrado el cliente con codigo " + String.valueOf(codigo));
 
 	}
 
@@ -169,7 +169,7 @@ public class CursoDAOImp implements CursoDAO {
 		template = new JdbcTemplate(this.dataSource);
 		cursos = template.query(sqlprocgetLastTen, new CursoMapper());
 		
-		logger.debug("Se han recuperado los ultimos 10 cursos");
+		LOGGER.debug("Se han recuperado los ultimos 10 cursos");
 		
 		return cursos;
 	}
@@ -178,10 +178,10 @@ public class CursoDAOImp implements CursoDAO {
 	public List<Curso> getSearch(String busqueda) {
 		
 			template = new JdbcTemplate(this.dataSource);
-			//logger.info("Dentro " + sqlprocgetSearch  );
+			//LOGGER.info("Dentro " + sqlprocgetSearch  );
 			cursos = template.query(sqlprocgetSearch, new Object[]{busqueda},new CursoMapper());
 			
-			logger.info(" Se ha recuperado los cursos con criterio de busqueda %" + busqueda + "%");
+			LOGGER.info(" Se ha recuperado los cursos con criterio de busqueda %" + busqueda + "%");
 	
 	
 		
@@ -197,24 +197,24 @@ public class CursoDAOImp implements CursoDAO {
 		try {
 			
 			String codigoCurso = curso.getCodCurso();
-			logger.info("Curso CodigoCurso " + codigoCurso);
+			LOGGER.info("Curso CodigoCurso " + codigoCurso);
 			cursos = template.query(sqlprocCodCursoDuplicado, new Object[]{codigoCurso},new CursoMapper());
 			//aux =  template.queryForObject(sqlprocCodCursoDuplicado, new CursoMapper(),new Object[]{codigoCurso});
 			aux =  cursos.get(0); //template.queryForObject(sqlprocCodCursoDuplicado, new CursoMapper(),new Object[]{codigoCurso});
 		} catch (EmptyResultDataAccessException e) {
 			aux = new Curso();
-			logger.debug("Curso CodigoCurso  nulo");
+			LOGGER.debug("Curso CodigoCurso  nulo");
 			
 		}catch(Exception e){
 			aux = new Curso();
 			e.printStackTrace();
-			logger.error("Error al recuperar Curso CodCurso " + e.getMessage());
+			LOGGER.error("Error al recuperar Curso CodCurso " + e.getMessage());
 		}// fin del catch
 		
 		 
-		    
+		    //LOGGER.error(aux.getCodCurso());
 			if (curso.getCodigo() != aux.getCodigo() && 
-				curso.getCodCurso().equals(aux.getCodCurso())){
+				curso.getCodCurso().equalsIgnoreCase(aux.getCodCurso())){
 				resultado = true;
 		}
 			  
